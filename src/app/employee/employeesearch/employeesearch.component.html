@@ -1,0 +1,41 @@
+<h4>
+  Employee Registration 
+</h4>
+
+
+    <kendo-grid [data]="gridData" [height]="410"
+     [pageSize]="state.take"
+     [skip]="state.skip"
+     [pageable]="true"
+     (dataStateChange)="dataStateChange($event)">
+
+        <ng-template kendoGridToolbarTemplate>
+            <button mat-raised-button type="button" (click)="addEmployee()"> Add Employee </button>
+        </ng-template>
+
+            <kendo-grid-column field="firstName" title="First Name" width="100">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="lastName" title="Last Name" width="100">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="address" title="Address" width="150">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="email" title="Email" width="150">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="mobileNo" title="Mobile No" width="50">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="departmentName" title="Department" width="100">
+            </kendo-grid-column>
+
+            <kendo-grid-command-column width="90px">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <button mat-mini-fab type="button" kendoGridCommand matTooltip="edit" (click)="editEmployee(dataItem)">Edit</button>
+            </ng-template>
+        </kendo-grid-command-column>
+    </kendo-grid>
+
+

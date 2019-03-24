@@ -1,0 +1,45 @@
+<h2>Register Employee</h2>
+
+
+<div   [formGroup]="employeeFormGroup" class="example-container">
+
+
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]='model.firstName' required/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]='model.lastName' />
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Address" formControlName="address" [(ngModel)]='model.address' maxlength="1000"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" [(ngModel)]='model.email' email  required/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="MobileNo" formControlName="mobileNo" [(ngModel)]='model.mobileNo'  />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select matInput placeholder="Department" name="Department" formControlName="department"
+     [(ngModel)]='model.departmentId' required >
+      <mat-option *ngFor="let department of departmentList" [value]="department.id">
+      {{department.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+<div class="example-button-row">
+   <button mat-raised-button color="primary" type="submit" (click)="save()">Save</button>
+   <button mat-raised-button >Clear</button>
+</div>
+
+
+</div>
+
